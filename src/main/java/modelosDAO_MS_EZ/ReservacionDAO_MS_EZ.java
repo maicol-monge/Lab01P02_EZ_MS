@@ -2,13 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package modelosDAO;
+package modelosDAO_MS_EZ;
 
-import db.CN;
+import db_MS_EZ.CN_MS_EZ;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
-import modelos.Reservacion;
+import modelos_MS_EZ.Reservacion_MS_EZ;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,19 +16,19 @@ import java.sql.SQLException;
  *
  * @author EverZr
  */
-public class ReservacionDAO {
-     public List<Reservacion> listar() {
-        List<Reservacion> lista = new ArrayList<>();
+public class ReservacionDAO_MS_EZ {
+     public List<Reservacion_MS_EZ> listar() {
+        List<Reservacion_MS_EZ> lista = new ArrayList<>();
         String sql = "SELECT r.ID_Reservacion, r.Fecha_Reservacion, r.Pasajero_ID, p.Nombre_Pasajero " +
                      "FROM Reservaciones_Vuelos r " +
                      "INNER JOIN Pasajeros p ON r.Pasajero_ID = p.ID_Pasajero";
 
-        try (Connection con = new CN().getCon(); // 👈 Usar solo este método
+        try (Connection con = new CN_MS_EZ().getCon(); // 👈 Usar solo este método
              PreparedStatement ps = con.prepareStatement(sql);
              ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
-                Reservacion r = new Reservacion();
+                Reservacion_MS_EZ r = new Reservacion_MS_EZ();
                 r.setId(rs.getInt("ID_Reservacion"));
                 r.setFecha(rs.getDate("Fecha_Reservacion"));
                 r.setPasajeroId(rs.getInt("Pasajero_ID"));
@@ -41,9 +41,9 @@ public class ReservacionDAO {
         return lista;
     }
 
-    public boolean insertar(Reservacion r) {
+    public boolean insertar(Reservacion_MS_EZ r) {
         String sql = "INSERT INTO Reservaciones_Vuelos (Fecha_Reservacion, Pasajero_ID) VALUES (?, ?)";
-        try (Connection con = new CN().getCon();
+        try (Connection con = new CN_MS_EZ().getCon();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setDate(1, r.getFecha());
@@ -56,9 +56,9 @@ public class ReservacionDAO {
         }
     }
 
-    public boolean actualizar(Reservacion r) {
+    public boolean actualizar(Reservacion_MS_EZ r) {
         String sql = "UPDATE Reservaciones_Vuelos SET Fecha_Reservacion=?, Pasajero_ID=? WHERE ID_Reservacion=?";
-        try (Connection con = new CN().getCon();
+        try (Connection con = new CN_MS_EZ().getCon();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setDate(1, r.getFecha());
@@ -74,7 +74,7 @@ public class ReservacionDAO {
 
     public boolean eliminar(int id) {
         String sql = "DELETE FROM Reservaciones_Vuelos WHERE ID_Reservacion=?";
-        try (Connection con = new CN().getCon();
+        try (Connection con = new CN_MS_EZ().getCon();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setInt(1, id);
@@ -86,15 +86,15 @@ public class ReservacionDAO {
         }
     }
 
-    public Reservacion obtenerPorId(int id) {
+    public Reservacion_MS_EZ obtenerPorId(int id) {
         String sql = "SELECT * FROM Reservaciones_Vuelos WHERE ID_Reservacion=?";
-        try (Connection con = new CN().getCon();
+        try (Connection con = new CN_MS_EZ().getCon();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                Reservacion r = new Reservacion();
+                Reservacion_MS_EZ r = new Reservacion_MS_EZ();
                 r.setId(rs.getInt("ID_Reservacion"));
                 r.setFecha(rs.getDate("Fecha_Reservacion"));
                 r.setPasajeroId(rs.getInt("Pasajero_ID"));

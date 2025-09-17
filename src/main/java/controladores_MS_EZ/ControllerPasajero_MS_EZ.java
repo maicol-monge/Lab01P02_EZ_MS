@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package controladores;
+package controladores_MS_EZ;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,15 +12,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelos.Pasajero;
-import modelosDAO.PasajeroDAO;
+import modelos_MS_EZ.Pasajero_MS_EZ;
+import modelosDAO_MS_EZ.PasajeroDAO_MS_EZ;
 
 /**
  *
  * @author EverZr
  */
 @WebServlet(name = "ControllerPasajero", urlPatterns = {"/ControllerPasajero"})
-public class ControllerPasajero extends HttpServlet { private PasajeroDAO dao = new PasajeroDAO();
+public class ControllerPasajero_MS_EZ extends HttpServlet { private PasajeroDAO_MS_EZ dao = new PasajeroDAO_MS_EZ();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -37,7 +37,7 @@ public class ControllerPasajero extends HttpServlet { private PasajeroDAO dao = 
 
             case "editar":
                 int idEditar = Integer.parseInt(request.getParameter("id"));
-                Pasajero pasajero = dao.obtenerPorId(idEditar);
+                Pasajero_MS_EZ pasajero = dao.obtenerPorId(idEditar);
                 request.setAttribute("pasajero", pasajero);
                 request.getRequestDispatcher("pasajero/formulario.jsp").forward(request, response);
                 break;
@@ -49,7 +49,7 @@ public class ControllerPasajero extends HttpServlet { private PasajeroDAO dao = 
                 break;
 
             default:
-                List<Pasajero> lista = dao.listar();
+                List<Pasajero_MS_EZ> lista = dao.listar();
                 request.setAttribute("lista", lista);
                 request.getRequestDispatcher("pasajero/listar.jsp").forward(request, response);
                 break;
@@ -65,7 +65,7 @@ public class ControllerPasajero extends HttpServlet { private PasajeroDAO dao = 
         String nacionalidad = request.getParameter("nacionalidad");
         String pasaporte = request.getParameter("pasaporte");
 
-        Pasajero pasajero = new Pasajero(id, nombre, nacionalidad, pasaporte);
+        Pasajero_MS_EZ pasajero = new Pasajero_MS_EZ(id, nombre, nacionalidad, pasaporte);
 
         if (id == 0) {
             dao.insertar(pasajero);

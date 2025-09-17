@@ -1,9 +1,9 @@
+controladores_MS_EZ\ControllerPasajero_MS_EZ.class
+modelos_MS_EZ\Pasajero_MS_EZ.class
+modelos_MS_EZ\Reservacion_MS_EZ.class
 com\mycompany\lab01p02_ez_ms\JakartaRestConfiguration.class
-controladores\ControllerReserva.class
+db_MS_EZ\CN_MS_EZ.class
 com\mycompany\lab01p02_ez_ms\resources\JakartaEE8Resource.class
-db\CN.class
-modelos\Pasajero.class
-modelosDAO\ReservacionDAO.class
-modelos\Reservacion.class
-controladores\ControllerPasajero.class
-modelosDAO\PasajeroDAO.class
+modelosDAO_MS_EZ\PasajeroDAO_MS_EZ.class
+controladores_MS_EZ\ControllerReserva_MS_EZ.class
+modelosDAO_MS_EZ\ReservacionDAO_MS_EZ.class

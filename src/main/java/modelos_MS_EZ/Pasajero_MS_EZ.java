@@ -2,22 +2,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package modelos;
+package modelos_MS_EZ;
 
 /**
  *
  * @author EverZr
  */
-public class Pasajero {
+public class Pasajero_MS_EZ {
     
     private int id;
     private String nombre;
     private String nacionalidad;
     private String pasaporte;
 
-    public Pasajero() {}
+    public Pasajero_MS_EZ() {}
 
-    public Pasajero(int id, String nombre, String nacionalidad, String pasaporte) {
+    public Pasajero_MS_EZ(int id, String nombre, String nacionalidad, String pasaporte) {
         this.id = id;
         this.nombre = nombre;
         this.nacionalidad = nacionalidad;

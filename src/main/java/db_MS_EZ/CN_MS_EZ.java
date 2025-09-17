@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package db;
+package db_MS_EZ;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,11 +11,11 @@ import java.sql.DriverManager;
  *
  * @author EverZr
  */
-public class CN {
+public class CN_MS_EZ {
 
     private Connection con;
 
-    public CN() {
+    public CN_MS_EZ() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             String cadena = "jdbc:mysql://localhost:3306/reservavuelos";

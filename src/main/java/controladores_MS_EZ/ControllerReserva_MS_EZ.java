@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package controladores;
+package controladores_MS_EZ;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,19 +12,19 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelos.Reservacion;
-import modelosDAO.PasajeroDAO;
-import modelosDAO.ReservacionDAO;
+import modelos_MS_EZ.Reservacion_MS_EZ;
+import modelosDAO_MS_EZ.PasajeroDAO_MS_EZ;
+import modelosDAO_MS_EZ.ReservacionDAO_MS_EZ;
 
 /**
  *
  * @author EverZr
  */
 @WebServlet(name = "ControllerReserva", urlPatterns = {"/ControllerReserva"})
-public class ControllerReserva extends HttpServlet {
+public class ControllerReserva_MS_EZ extends HttpServlet {
 
-private ReservacionDAO dao = new ReservacionDAO();
-    private PasajeroDAO pasajeroDAO = new PasajeroDAO(); // Para combos en formularios
+private ReservacionDAO_MS_EZ dao = new ReservacionDAO_MS_EZ();
+    private PasajeroDAO_MS_EZ pasajeroDAO = new PasajeroDAO_MS_EZ(); // Para combos en formularios
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -67,7 +67,7 @@ private ReservacionDAO dao = new ReservacionDAO();
         Date fecha = Date.valueOf(request.getParameter("fecha"));
         int pasajeroId = Integer.parseInt(request.getParameter("pasajeroId"));
 
-        Reservacion reservacion = new Reservacion();
+        Reservacion_MS_EZ reservacion = new Reservacion_MS_EZ();
         reservacion.setId(id);
         reservacion.setFecha(fecha);
         reservacion.setPasajeroId(pasajeroId);
