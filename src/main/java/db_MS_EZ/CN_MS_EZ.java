@@ -18,7 +18,7 @@ public class CN_MS_EZ {
     public CN_MS_EZ() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            String cadena = "jdbc:mysql://localhost:3306/reservavuelos";
+            String cadena = "jdbc:mysql://localhost:3306/sistema_vuelos";
             this.con = DriverManager.getConnection(cadena, "root", "");
 //terminado la guía borrar esta línea
             System.out.println("Conexion exitosa");

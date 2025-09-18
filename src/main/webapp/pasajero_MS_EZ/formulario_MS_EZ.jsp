@@ -85,7 +85,7 @@
     <div class="form-container">
         <h2>${pasajero != null ? "Editar Pasajero" : "Nuevo Pasajero"}</h2>
 
-        <form action="${pageContext.request.contextPath}/ControllerPasajero" method="post">
+    <form action="${pageContext.request.contextPath}/ControllerPasajero_MS_EZ" method="post">
             <!-- ID oculto para editar; si es nuevo, queda vacío -->
             <input type="hidden" name="id" value="${pasajero != null ? pasajero.id : ''}">
 
@@ -100,7 +100,7 @@
 
             <div class="buttons">
                 <button type="submit" class="save-btn">Guardar</button>
-                <a href="${pageContext.request.contextPath}/ControllerPasajero?action=listar" class="cancel-btn">Cancelar</a>
+                <a href="${pageContext.request.contextPath}/ControllerPasajero_MS_EZ?action=listar_MS_EZ" class="cancel-btn">Cancelar</a>
             </div>
         </form>
     </div>

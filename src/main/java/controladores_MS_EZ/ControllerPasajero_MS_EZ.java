@@ -19,7 +19,7 @@ import modelosDAO_MS_EZ.PasajeroDAO_MS_EZ;
  *
  * @author EverZr
  */
-@WebServlet(name = "ControllerPasajero", urlPatterns = {"/ControllerPasajero"})
+@WebServlet(name = "ControllerPasajero_MS_EZ", urlPatterns = {"/ControllerPasajero_MS_EZ"})
 public class ControllerPasajero_MS_EZ extends HttpServlet { private PasajeroDAO_MS_EZ dao = new PasajeroDAO_MS_EZ();
 
     @Override
@@ -28,30 +28,30 @@ public class ControllerPasajero_MS_EZ extends HttpServlet { private PasajeroDAO_
 
         String action = request.getParameter("action");
 
-        if (action == null) action = "listar";
+        if (action == null) action = "listar_MS_EZ";
 
         switch (action) {
             case "nuevo":
-                request.getRequestDispatcher("pasajero/formulario.jsp").forward(request, response);
+                request.getRequestDispatcher("pasajero_MS_EZ/formulario_MS_EZ.jsp").forward(request, response);
                 break;
 
             case "editar":
                 int idEditar = Integer.parseInt(request.getParameter("id"));
                 Pasajero_MS_EZ pasajero = dao.obtenerPorId(idEditar);
                 request.setAttribute("pasajero", pasajero);
-                request.getRequestDispatcher("pasajero/formulario.jsp").forward(request, response);
+                request.getRequestDispatcher("pasajero_MS_EZ/formulario_MS_EZ.jsp").forward(request, response);
                 break;
 
             case "eliminar":
                 int idEliminar = Integer.parseInt(request.getParameter("id"));
                 dao.eliminar(idEliminar);
-                response.sendRedirect("ControllerPasajero?action=listar");
+                response.sendRedirect("ControllerPasajero_MS_EZ?action=listar_MS_EZ");
                 break;
 
             default:
                 List<Pasajero_MS_EZ> lista = dao.listar();
                 request.setAttribute("lista", lista);
-                request.getRequestDispatcher("pasajero/listar.jsp").forward(request, response);
+                request.getRequestDispatcher("pasajero_MS_EZ/listar_MS_EZ.jsp").forward(request, response);
                 break;
         }
     }
@@ -72,6 +72,6 @@ public class ControllerPasajero_MS_EZ extends HttpServlet { private PasajeroDAO_
         } else {
             dao.actualizar(pasajero);
         }
-        response.sendRedirect("ControllerPasajero?action=listar");
+        response.sendRedirect("ControllerPasajero_MS_EZ?action=listar_MS_EZ");
     }
 }

@@ -77,7 +77,7 @@
     <div class="form-container">
         <h2>${reservacion != null ? "Editar Reservación" : "Nueva Reservación"}</h2>
 
-        <form action="${pageContext.request.contextPath}/ControllerReserva" method="post">
+    <form action="${pageContext.request.contextPath}/ControllerReserva_MS_EZ" method="post">
             <input type="hidden" name="id" value="${reservacion != null ? reservacion.id : ''}">
 
             <label>Cliente:</label>
@@ -96,7 +96,7 @@
 
             <div class="buttons">
                 <button type="submit" class="save-btn">Guardar</button>
-                <a href="${pageContext.request.contextPath}/ControllerReserva?action=listar" class="cancel-btn">Cancelar</a>
+                <a href="${pageContext.request.contextPath}/ControllerReserva_MS_EZ?action=listar_MS_EZ" class="cancel-btn">Cancelar</a>
             </div>
         </form>
     </div>

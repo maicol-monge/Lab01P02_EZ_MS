@@ -20,7 +20,7 @@ import modelosDAO_MS_EZ.ReservacionDAO_MS_EZ;
  *
  * @author EverZr
  */
-@WebServlet(name = "ControllerReserva", urlPatterns = {"/ControllerReserva"})
+@WebServlet(name = "ControllerReserva_MS_EZ", urlPatterns = {"/ControllerReserva_MS_EZ"})
 public class ControllerReserva_MS_EZ extends HttpServlet {
 
 private ReservacionDAO_MS_EZ dao = new ReservacionDAO_MS_EZ();
@@ -31,30 +31,30 @@ private ReservacionDAO_MS_EZ dao = new ReservacionDAO_MS_EZ();
             throws ServletException, IOException {
 
         String action = request.getParameter("action");
-        if (action == null) action = "listar";
+    if (action == null) action = "listar_MS_EZ";
 
         switch (action) {
             case "nuevo":
                 request.setAttribute("pasajeros", pasajeroDAO.listar()); // Combo de pasajeros
-                request.getRequestDispatcher("reservacion/formulario.jsp").forward(request, response);
+                request.getRequestDispatcher("reservacion_MS_EZ/formulario_MS_EZ.jsp").forward(request, response);
                 break;
 
             case "editar":
                 int idEditar = Integer.parseInt(request.getParameter("id"));
                 request.setAttribute("reservacion", dao.obtenerPorId(idEditar));
                 request.setAttribute("pasajeros", pasajeroDAO.listar());
-                request.getRequestDispatcher("reservacion/formulario.jsp").forward(request, response);
+                request.getRequestDispatcher("reservacion_MS_EZ/formulario_MS_EZ.jsp").forward(request, response);
                 break;
 
             case "eliminar":
                 int idEliminar = Integer.parseInt(request.getParameter("id"));
                 dao.eliminar(idEliminar);
-                response.sendRedirect("ControllerReserva?action=listar");
+                response.sendRedirect("ControllerReserva_MS_EZ?action=listar_MS_EZ");
                 break;
 
             default:
                 request.setAttribute("lista", dao.listar());
-                request.getRequestDispatcher("reservacion/listar.jsp").forward(request, response);
+                request.getRequestDispatcher("reservacion_MS_EZ/listar_MS_EZ.jsp").forward(request, response);
                 break;
         }
     }
@@ -77,7 +77,7 @@ private ReservacionDAO_MS_EZ dao = new ReservacionDAO_MS_EZ();
         } else {
             dao.actualizar(reservacion);
         }
-        response.sendRedirect("ControllerReserva?action=listar");
+    response.sendRedirect("ControllerReserva_MS_EZ?action=listar_MS_EZ");
     }
 
 }
