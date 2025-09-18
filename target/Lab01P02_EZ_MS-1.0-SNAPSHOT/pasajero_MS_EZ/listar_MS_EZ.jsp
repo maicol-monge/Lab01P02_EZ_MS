@@ -74,7 +74,7 @@
 <body>
     <div class="container">
         <h2>Lista de Pasajeros</h2>
-        <a href="${pageContext.request.contextPath}/ControllerPasajero?action=nuevo" class="add-btn">Agregar Pasajero</a>
+    <a href="${pageContext.request.contextPath}/ControllerPasajero_MS_EZ?action=nuevo" class="add-btn">Agregar Pasajero</a>
 
         <table>
             <thead>
@@ -94,10 +94,10 @@
                         <td>${p.nacionalidad}</td>
                         <td>${p.pasaporte}</td>
                         <td>
-                            <a href="${pageContext.request.contextPath}/ControllerPasajero?action=editar&id=${p.id}" class="action-btn edit-btn">Editar</a>
-                            <a href="${pageContext.request.contextPath}/ControllerPasajero?action=eliminar&id=${p.id}" 
-                               class="action-btn delete-btn" 
-                               onclick="return confirm('¿Eliminar pasajero?')">Eliminar</a>
+                                     <a href="${pageContext.request.contextPath}/ControllerPasajero_MS_EZ?action=editar&id=${p.id}" class="action-btn edit-btn">Editar</a>
+                                     <a href="${pageContext.request.contextPath}/ControllerPasajero_MS_EZ?action=eliminar&id=${p.id}" 
+                                         class="action-btn delete-btn" 
+                                         onclick="return confirm('¿Eliminar pasajero?')">Eliminar</a>
                         </td>
                     </tr>
                 </c:forEach>

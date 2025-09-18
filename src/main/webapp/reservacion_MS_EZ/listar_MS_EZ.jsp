@@ -62,7 +62,7 @@
 <body>
     <div class="container">
         <h2>Lista de Reservaciones</h2>
-        <a href="${pageContext.request.contextPath}/ControllerReserva?action=nuevo" class="add-btn">Nueva Reservación</a>
+    <a href="${pageContext.request.contextPath}/ControllerReserva_MS_EZ?action=nuevo" class="add-btn">Nueva Reservación</a>
 
         <table>
             <thead>
@@ -80,10 +80,10 @@
                         <td>${r.nombrePasajero}</td>
                         <td>${r.fecha}</td>
                         <td>
-                            <a href="${pageContext.request.contextPath}/ControllerReserva?action=editar&id=${r.id}" class="action-btn edit-btn">Editar</a>
-                            <a href="${pageContext.request.contextPath}/ControllerReserva?action=eliminar&id=${r.id}" 
-                               class="action-btn delete-btn"
-                               onclick="return confirm('¿Eliminar reservación?')">Eliminar</a>
+                                     <a href="${pageContext.request.contextPath}/ControllerReserva_MS_EZ?action=editar&id=${r.id}" class="action-btn edit-btn">Editar</a>
+                                     <a href="${pageContext.request.contextPath}/ControllerReserva_MS_EZ?action=eliminar&id=${r.id}" 
+                                         class="action-btn delete-btn"
+                                         onclick="return confirm('¿Eliminar reservación?')">Eliminar</a>
                         </td>
                     </tr>
                 </c:forEach>

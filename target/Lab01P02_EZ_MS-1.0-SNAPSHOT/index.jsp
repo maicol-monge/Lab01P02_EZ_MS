@@ -40,7 +40,7 @@
             <div class="card p-3">
                 <h5 class="card-title">Gestión de Reservaciones</h5>
                 <p class="card-text">Administra todas las reservaciones de vuelos.</p>
-                <a href="ControllerReserva?action=listar" class="btn btn-primary">Ir a Reservaciones</a>
+                <a href="ControllerReserva_MS_EZ?action=listar_MS_EZ" class="btn btn-primary">Ir a Reservaciones</a>
             </div>
         </div>
 
@@ -49,7 +49,7 @@
             <div class="card p-3">
                 <h5 class="card-title">Gestión de Pasajeros</h5>
                 <p class="card-text">Administra la información de los pasajeros.</p>
-                <a href="ControllerPasajero?action=listar" class="btn btn-success">Ir a Pasajeros</a>
+                <a href="ControllerPasajero_MS_EZ?action=listar_MS_EZ" class="btn btn-success">Ir a Pasajeros</a>
             </div>
         </div>
     </div>
